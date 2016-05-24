@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 
 cooking.set({
   use: 'vue',
-  entry: './example/entry.js',
+  entry: './example/index.js',
   template: './example/index.tpl',
   dist: dist,
   publicPath: '/mint-range/',

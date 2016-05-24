@@ -4,8 +4,8 @@ var webpack = require('webpack');
 cooking.set({
   use: 'vue',
   entry: {
-    'index': './src/entry.js',
-    'index.min': './src/entry.js'
+    'index': './src/index.js',
+    'index.min': './src/index.js'
   },
   template: false,
   clean: true,
