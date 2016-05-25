@@ -1,10 +1,21 @@
 {
   "name": "mint-range",
-  "version": "0.0.0",
-  "description": "A mint component",
-  "keywords": [
-    ""
-  ],
+  "version": "0.0.1",
+  "description": "A mobile range component for vue.js",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "cooking build -c cooking.conf.js",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mint-ui/mint-range.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mint-ui/mint-range/issues"
+  },
+  "homepage": "https://github.com/mint-ui/mint-range#readme",
+  "author": "long.zhang@ele.me",
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^0.11.0"

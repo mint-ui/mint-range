@@ -12,15 +12,7 @@ cooking.set({
   format: 'umd',
   moduleName: 'ELEMENT_COMPONENT',
   extractCSS: 'index.css',
-  extends: {
-    vue: true,
-    lint: true,
-    saladcss: {
-      features: {
-        bem: { style: 'bem' }
-      }
-    }
-  }
+  extends: ['vue', 'lint', 'saladcss']
 });
 
 cooking.add('plugin.UglifyJs', new webpack.optimize.UglifyJsPlugin({

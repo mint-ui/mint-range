@@ -1,73 +1,75 @@
 <template>
-  <div class="mt-range" :class="{ 'mt-range__disabled': disabled }">
+  <div class="mt-range" :class="{ 'mt-range--disabled': disabled }">
     <slot name="start"></slot>
-    <div class="mt-range--content" v-el:content>
-      <div class="mt-range--progress" :style="{ width: progress + '%' }"></div>
-      <div class="mt-range--thumb" v-el:thumb :style="{ left: progress + '%' }"></div>
+    <div class="mt-range-content" v-el:content>
+      <div class="mt-range-runway" :style="{ 'border-top-width': barHeight + 'px' }"></div>
+      <div class="mt-range-progress" :style="{ width: progress + '%', height: barHeight + 'px' }"></div>
+      <div class="mt-range-thumb" v-el:thumb :style="{ left: progress + '%' }"></div>
     </div>
     <slot name="end"></slot>
   </div>
 </template>
 
 <style>
-  .mt-range {
-    position: relative;
-    display: flex;
-    height: 30px;
-    line-height: 30px;
-  }
+  @component-namespace mt {
+    @component range {
+      position: relative;
+      display: flex;
+      height: 30px;
+      line-height: 30px;
 
-  .mt-range__disabled {
-    opacity: 0.5;
-  }
+      & > * {
+        display: flex;
+        display: -webkit-box;
+      }
 
-  .mt-range > * {
-    display: flex;
-    display: -webkit-box;
-  }
+      & *[slot=start] {
+        margin-right: 5px;
+      }
 
-  .mt-range *[slot=start] {
-    margin-right: 5px;
-  }
+      & *[slot=end] {
+        margin-left: 5px;
+      }
 
-  .mt-range *[slot=end] {
-    margin-left: 5px;
-  }
+      @descendent content {
+        position: relative;
+        flex: 1;
+        margin-right: 30px;
+      }
 
-  .mt-range--content {
-    position: relative;
-    flex: 1;
-    margin-right: 30px;
-  }
+      @descendent runway {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: -30px;
+        border-top-color: #a9acb1;
+        border-top-style: solid;
+      }
 
-  .mt-range--content::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 0;
-    right: -30px;
-    border-top: 1px solid #a9acb1;
-  }
+      @descendent thumb {
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        cursor: move;
+        box-shadow: 0 1px 3px rgba(0,0,0,.4);
+      }
 
-  .mt-range--thumb {
-    background-color: #fff;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    cursor: move;
-    box-shadow: 0 1px 3px rgba(0,0,0,.4);
-  }
+      @descendent progress {
+        position: absolute;
+        display: block;
+        background-color: #04be02;
+        top: 50%;
+        width: 0;
+      }
 
-  .mt-range--progress {
-    position: absolute;
-    display: block;
-    height: 1px;
-    background-color: #04be02;
-    top: 50%;
-    width: 0;
+      @modifier disabled {
+        opacity: 0.5;
+      }
+    }
   }
 </style>
 
@@ -82,7 +84,7 @@
       },
       max: {
         type: Number,
-        default: 10
+        default: 100
       },
       step: {
         type: Number,
@@ -94,6 +96,10 @@
       },
       value: {
         type: Number
+      },
+      barHeight: {
+        type: Number,
+        default: 1
       }
     },
     computed: {

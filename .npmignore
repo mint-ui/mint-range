@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+coverage
+.idea
+.jshintrc
+npm-debug.log
+src/
+example/
+cooking.config.js
+cooking.demo.js

@@ -17,15 +17,7 @@ cooking.set({
   extractCSS: true,
   clean: true,
   hash: true,
-  extends: {
-    vue: true,
-    lint: true,
-    saladcss: {
-      features: {
-        bem: { style: 'bem' }
-      }
-    }
-  }
+  extends: ['vue', 'lint', 'saladcss']
 });
 
 cooking.add('externals.vue', 'Vue');
