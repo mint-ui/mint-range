@@ -40,6 +40,7 @@
       @descendent runway {
         position: absolute;
         top: 50%;
+        transform: translateY(-50%);
         left: 0;
         right: -30px;
         border-top-color: #a9acb1;
@@ -63,6 +64,7 @@
         display: block;
         background-color: #04be02;
         top: 50%;
+        transform: translateY(-50%);
         width: 0;
       }
 
