@@ -25,6 +25,7 @@ export default function(element, options) {
 
   element.addEventListener(supportTouch ? 'touchstart' : 'mousedown', function(event) {
     if (isDragging) return;
+    event.preventDefault();
     document.onselectstart = function() { return false; };
     document.ondragstart = function() { return false; };
 
