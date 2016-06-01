@@ -1,6 +1,6 @@
 {
   "name": "mint-range",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A mobile range component for vue.js",
   "main": "dist/index.min.js",
   "scripts": {
