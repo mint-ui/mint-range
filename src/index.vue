@@ -79,6 +79,7 @@
   import draggable from './draggable';
 
   export default {
+    name: 'mt-range',
     props: {
       min: {
         type: Number,
